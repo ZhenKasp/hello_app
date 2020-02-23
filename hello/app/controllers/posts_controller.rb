@@ -1,7 +1,7 @@
-class PostsController < ApplicationController
-  http_basic_authenticate_with name: "admin", password: "563090zh",
-   except: [:index, :show]
+# frozen_string_literal: true
 
+class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @post = Post.all
@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if(@post.update(post_params))
+    if @post.update(post_params)
       redirect_to @post
     else
       render 'edit'
@@ -36,10 +36,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    #render plain: params[:post].inspect
+    # render plain: params[:post].inspect
     @post = Post.new(post_params)
 
-    if(@post.save)
+    if @post.save
       redirect_to @post
     else
       render 'new'
@@ -47,6 +47,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:title, :body)
   end
