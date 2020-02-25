@@ -17,10 +17,11 @@
 
 
 <!-- drop-down menu--!>
+
       <% if current_user %>
-        <div class="dropdown open">
+        <div class="dropdown group">
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false"> current_user.email
+          aria-haspopup="true" aria-expanded="false"> <%= current_user.email %>
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <button class="dropdown-item" type="button"><%= link_to "Add post", new_post_path %></button>
@@ -33,10 +34,11 @@
       <span class="dropdown-item"><%= link_to "About", about_path %></span>
         <div class="dropdown open">
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false"> Menu
+          aria-haspopup="true" aria-expanded="false"> Authorisation
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <button class="dropdown-item" type="button"><%= link_to 'Sign up', new_user_registration_path %></button>
+          <button class="dropdown-item" type="button"><%= link_to 'Log in', new_user_session_path %></button>
           <div class="dropdown-divider"></div>
           <button class="dropdown-item" type="button"><%= link_to "About", about_path %></button>
         </div>
