@@ -1,7 +1,20 @@
 class UsersController < ApplicationController
-before_filter :check_current_user, only: [:show]
+before_filter :check_current_user, only: [:show, :update]
 
   def show
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @post.update(user_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
     @user = User.find(params[:id])
   end
 
