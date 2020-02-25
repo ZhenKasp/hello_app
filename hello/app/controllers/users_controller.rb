@@ -23,7 +23,7 @@ before_filter :check_current_user, only: [:show, :update]
   private
 
   def user_params
-    params.require(:user).permit(current_user)
+    params.require(:user).permit(current_user, :first_name, :last_name)
   end
 
   def check_current_user
