@@ -6,8 +6,8 @@ before_filter :check_current_user, only: [:show, :update]
   end
 
   def update
-    @user = User.find(params[:id])
-    if @post.update(user_params)
+    @user = current_user
+    if @user.update(user_params)
       redirect_to @user
     else
       render 'edit'
@@ -15,7 +15,7 @@ before_filter :check_current_user, only: [:show, :update]
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
 
@@ -23,7 +23,7 @@ before_filter :check_current_user, only: [:show, :update]
   private
 
   def user_params
-    params.require(:user).permit(current_user, :first_name, :last_name)
+    params.require(:user).permit(:first_name, :last_name, :email)
   end
 
   def check_current_user
