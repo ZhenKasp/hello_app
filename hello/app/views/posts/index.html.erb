@@ -2,7 +2,7 @@
 <% @post.each do |post| %>
   <div class="alert alert-dark">
     <h3><%= post.title %></h3>
-    <p><%= simple_format(post.body) %></p>
+    <post text-overflow="ellipis" ><%= simple_format(post.body) %></post>
     <%= link_to "Read more", post_path(post), :class => "btn btn-outline-primary" %>
   </div>
   <br>
