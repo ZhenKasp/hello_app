@@ -19,7 +19,6 @@ before_filter :check_current_user, only: [:show, :update]
   end
 
 
-
   private
 
   def user_params
