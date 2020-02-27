@@ -3,6 +3,12 @@
 <div>
   <h1><%= @post.title %></h1>
   <p><%= simple_format(@post.body) %></p>
+  <hr>
+  <% if @post.created_at == @post.updated_at %>
+    Created at: <%= @post.created_at %>
+  <% else %>
+    Updated at: <%= @post.updated_at %>
+  <% end %>
 </div>
 
 <hr>
