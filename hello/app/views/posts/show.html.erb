@@ -2,7 +2,9 @@
 <br><br>
 <div>
   <h1><%= @post.title %></h1>
-  <%= image_tag @post.image.url(:medium) %>
+  <% if @post.image.file? %>
+    <%= image_tag @post.image.url(:large) %>
+  <% end %>
   <p><%= simple_format(@post.body) %></p>
   <hr>
   <% if @post.created_at == @post.updated_at %>

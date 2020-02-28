@@ -1,5 +1,5 @@
 <h2>Edit post</h2>
-<%= form_for :post, url: post_path(@post), method: :patch do |f| %>
+<%= form_for :post, url: post_path(@post), html: { multipart: true }, method: :patch do |f| %>
 <% if @post.errors.any? %>
   <% @post.errors.full_messages.each do |msg| %>
     <div class="alert alert-danger"><%= msg %></div>
@@ -8,6 +8,13 @@
 <p>Name
   <br>
   <%= f.text_field(:title, {:class => 'form-control'}) %>
+</p>
+<p>
+  <% if @post.image.file? %>
+    <%= image_tag @post.image.url(:large) %>
+  <% else %>
+    <%=  f.file_field(:image, {:class => 'form-control-file'}) %>
+  <% end %>
 </p>
 <p>Text
   <br>

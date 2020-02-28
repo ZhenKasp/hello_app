@@ -2,6 +2,10 @@
 <% @post.each do |post| %>
   <div class="alert alert-dark">
     <h3><%= post.title %></h3>
+    <% if post.image.file? %>
+      <%= image_tag post.image.url(:large) %>
+    <% end %>
+    <br><br>
     <post><%=simple_format(truncate(post.body, length:75, separator: ' ')) %></post>
     <%= link_to "Read more", post_path(post), :class => "btn btn-outline-primary" %>
   </div>

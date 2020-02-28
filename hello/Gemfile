@@ -35,11 +35,11 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'devise'
-gem 'rubocop'
-gem 'bootstrap', '~> 4.4.1'
-gem 'ckeditor'
-gem "paperclip", "~> 6.0.0"
+gem 'devise'                # work with authorisation
+gem 'rubocop'               # fix atom bug
+gem 'bootstrap', '~> 4.4.1' # add stiles
+gem 'ckeditor'              # work with text
+gem "paperclip", "~> 6.0.0" # work with images
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
