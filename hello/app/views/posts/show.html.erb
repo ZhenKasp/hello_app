@@ -12,6 +12,12 @@
   <% else %>
     Updated at: <%= @post.updated_at %>
   <% end %>
+  <% if  @post.user.first_name != "" || @post.user.last_name != "" %>
+  <p>
+    User name: <%= @post.user.first_name %> <%= @post.user.last_name %>
+  </p>
+  <% end %>
+
 </div>
 
 <hr>
@@ -35,7 +41,7 @@
 <p>
   Commentator
   <br>
-  <%= f.text_field(:username, {:class => 'form-control'}) %>
+  <%= f.text_field(:username, {:class => 'form-control', :value => @post.user.first_name + " " + @post.user.last_name}) %>
 </p>
 <p>
   Comment text
