@@ -6,7 +6,9 @@
       <%= image_tag post.image.url(:large) %>
       <br><br>
     <% end %>
-    <post><%=simple_format(truncate(post.body, length:75, separator: ' ')) %></post>
+    <p>
+      <%=truncate(simple_format(post.body), escape: false, length:75, separator: ' ') %>
+    </p>
     <%= link_to "Read more", post_path(post), :class => "btn btn-outline-primary" %>
   </div>
 <% end %>

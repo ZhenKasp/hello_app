@@ -40,6 +40,7 @@ gem 'rubocop'               # fix atom bug
 gem 'bootstrap', '~> 4.4.1' # add stiles
 gem 'ckeditor'              # work with text
 gem "paperclip", "~> 6.0.0" # work with images
+gem 'activeadmin'           #add admin panel
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
