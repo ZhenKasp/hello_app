@@ -41,7 +41,11 @@
 <p>
   Commentator
   <br>
-  <%= f.text_field(:username, {:class => 'form-control', :value => @post.user.first_name + " " + @post.user.last_name}) %>
+  <% if current_user.first_name != nil && current_user.last_name != nil %>
+    <%= f.text_field(:username, {:class => 'form-control', :value => current_user.first_name + " " + current_user.last_name }) %>
+  <% else %>
+    <%= f.text_field(:username, {:class => 'form-control' }) %>
+  <% end %>
 </p>
 <p>
   Comment text
