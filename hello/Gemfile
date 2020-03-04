@@ -40,7 +40,8 @@ gem 'rubocop'               # fix atom bug
 gem 'bootstrap', '~> 4.4.1' # add stiles
 gem 'ckeditor'              # work with text
 gem "paperclip", "~> 6.0.0" # work with images
-gem 'activeadmin'           #add admin panel
+gem 'activeadmin'           # add admin panel
+gem 'rspec-rails', '~> 3.7' # add tests
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,7 +55,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rspec-rails', '~> 3.7' # addd tests
 end
+
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data'#, platforms: [:mingw, :mswin, :x64_mingw, :jruby]

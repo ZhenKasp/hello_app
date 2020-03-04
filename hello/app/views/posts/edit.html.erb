@@ -13,9 +13,9 @@
   <% if @post.image.file? %>
     <%= image_tag @post.image.url(:large) %>
     <br><br>
-    <%= f.file_field(:image, {:class => 'form-control-file'}) %>
+    <%= f.file_field(:image, multiple: true) %>
   <% else %>
-    <%=  f.file_field(:image, {:class => 'form-control-file'}) %>
+    <%= f.file_field(:image, multiple: true) %>
   <% end %>
 </p>
 <p>Text

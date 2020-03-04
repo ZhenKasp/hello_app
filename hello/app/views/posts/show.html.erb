@@ -33,9 +33,11 @@
         <strong><%= comment.username %>:
         </strong><%= comment.body %>
       </p>
-      <%= link_to 'Delete comment', post_comment_path(comment.post, comment), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+      <% if @post.comments == current_user %>
+        <%= link_to 'Delete comment', post_comment_path(comment.post, comment), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+        <br>
+      <% end %>
     </div>
-    <br>
   <% end %>
   <hr>
   <h2>Add comment</h2>
