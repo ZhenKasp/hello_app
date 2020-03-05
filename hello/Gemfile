@@ -41,6 +41,7 @@ gem 'bootstrap', '~> 4.4.1' # add stiles
 gem 'ckeditor'              # work with text
 gem "paperclip", "~> 6.0.0" # work with images
 gem 'activeadmin'           # add admin panel
+gem 'capybara'              # gem for rspec
 
 
 group :development, :test do
