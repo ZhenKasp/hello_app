@@ -41,7 +41,7 @@ gem 'bootstrap', '~> 4.4.1' # add stiles
 gem 'ckeditor'              # work with text
 gem "paperclip", "~> 6.0.0" # work with images
 gem 'activeadmin'           # add admin panel
-gem 'rspec-rails', '~> 3.7' # add tests
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

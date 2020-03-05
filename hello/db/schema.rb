@@ -58,8 +58,15 @@ ActiveRecord::Schema.define(version: 20200229194258) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "users_id"
     t.integer  "user_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["users_id"], name: "index_posts_on_users_id"
+  end
+
+  create_table "user_profiles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
