@@ -35,18 +35,21 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'devise'                # work with authorisation
-gem 'rubocop'               # fix atom bug
-gem 'bootstrap', '~> 4.4.1' # add stiles
-gem 'ckeditor'              # work with text
-gem "paperclip", "~> 6.0.0" # work with images
-gem 'activeadmin'           # add admin panel
-gem 'capybara'              # gem for rspec
+gem 'devise'                  # work with authorisation
+gem 'rubocop'                 # fix atom bug
+gem 'bootstrap', '~> 4.4.1'   # add stiles
+gem 'ckeditor'                # work with text
+gem "paperclip", "~> 6.0.0"   # work with images
+gem 'activeadmin'             # add admin panel
+
+
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.9'
+  gem 'capybara'
 end
 
 group :development do
@@ -56,7 +59,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rspec-rails', '~> 3.7' # addd tests
 end
 
 
