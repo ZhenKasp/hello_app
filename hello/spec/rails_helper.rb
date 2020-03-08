@@ -45,6 +45,7 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false
 
   config.before(:suite) do
@@ -88,7 +89,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
 
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
@@ -117,4 +118,28 @@ RSpec.configure do |config|
   # Capybara.server = :puma # Until your setup is working
   # Capybara.server = :puma, { Silent: true } # To clean up your test output
 
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+  Capybara.register_driver :headless_chrome do |app|
+    capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+      chromeOptions: { args: %w(headless disable-gpu disable-infobars) }
+    )
+    Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: capabilities)
+  end
+  Capybara::Screenshot.register_driver(:headless_chrome) do |driver, path|
+    driver.browser.save_screenshot(path)
+  end
+  Capybara.javascript_driver = :headless_chrome
+  Capybara.server = :puma
+  Capybara.server_host = 'localhost'
+  Capybara.server_port = 2000
+
+  config.include Devise::Test::IntegrationHelpers
+
+  config.include FactoryBot::Syntax::Methods
+  config.before(:all) do
+     FactoryBot.definition_file_paths = ["#{::Rails.root}/spec/factories"]
+     FactoryBot.find_definitions
+  end
 end

@@ -78,13 +78,10 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-<<<<<<< HEAD
     capybara-screenshot (1.0.24)
       capybara (>= 1.0, < 4)
       launchy
     childprocess (3.0.0)
-=======
->>>>>>> ce0bd4e83055a889b48007a222ab2ade7ed252a2
     ckeditor (5.0.0)
       orm_adapter (~> 0.5.0)
     climate_control (0.2.0)
@@ -333,10 +330,7 @@ DEPENDENCIES
   bootstrap (~> 4.4.1)
   byebug
   capybara
-<<<<<<< HEAD
   capybara-screenshot
-=======
->>>>>>> ce0bd4e83055a889b48007a222ab2ade7ed252a2
   ckeditor
   coffee-rails (~> 4.2)
   database_cleaner-active_record
