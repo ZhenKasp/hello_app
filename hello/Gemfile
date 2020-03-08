@@ -35,18 +35,20 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'devise'                # work with authorisation
-gem 'rubocop'               # fix atom bug
-gem 'bootstrap', '~> 4.4.1' # add stiles
-gem 'ckeditor'              # work with text
-gem "paperclip", "~> 6.0.0" # work with images
-gem 'activeadmin'           # add admin panel
+gem 'devise'                  # work with authorisation
+gem 'rubocop'                 # fix atom bug
+gem 'bootstrap', '~> 4.4.1'   # add stiles
+gem 'ckeditor'                # work with text
+gem "paperclip", "~> 6.0.0"   # work with images
+gem 'activeadmin'             # add admin panel
+
+
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.7' # addd tests
+  gem 'rspec-rails', '~> 3.9'
 end
 
 group :development do
