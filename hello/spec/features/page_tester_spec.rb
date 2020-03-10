@@ -4,7 +4,7 @@ describe "PageTesters", js: :true do
   let(:user) { create(:user) }
 
   it "signs me in" do
-    byebug
+
     sign_in user
 
     visit '/posts'
@@ -12,6 +12,6 @@ describe "PageTesters", js: :true do
     expect(page).to have_content("posts")
     expect(page).to have_content(user.email)
 
-    save_and_open_screenshot
+  #  save_and_open_screenshot
   end
 end

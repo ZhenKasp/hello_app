@@ -17,48 +17,16 @@
     User name: <%= @post.user.first_name %> <%= @post.user.last_name %>
   </p>
   <% end %>
-
 </div>
-<% if current_user %>
+
   <% if @post.user == current_user %>
     <hr>
     <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-warning" %>
     <%= link_to 'Delete post', post_path(@post), method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-danger" %>
   <% end %>
   <hr>
-  <h1>All comments</h1>
-  <% @post.comments.each do |comment| %>
-    <div class="alert alert-light">
-      <p>
-        <strong><%= comment.username %>:
-        </strong><%= comment.body %>
-      </p>
-      <% if @post.comments == current_user %>
-        <%= link_to 'Delete comment', post_comment_path(comment.post, comment), method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
-        <br>
-      <% end %>
-    </div>
-  <% end %>
-  <hr>
-  <h2>Add comment</h2>
-  <h2>Comments</h2>
-  <%= form_for([@post, @post.comments.build]) do |f| %>
-    <p>
-      Commentator
-      <br>
-      <% if current_user.first_name != nil && current_user.last_name != nil %>
-        <%= f.text_field(:username, {:class => 'form-control', :value => current_user.first_name + " " + current_user.last_name }) %>
-      <% else %>
-        <%= f.text_field(:username, {:class => 'form-control' }) %>
-      <% end %>
-    </p>
-    <p>
-      Comment text
-      <br>
-      <%= f.text_area(:body, {:class => 'form-control'}) %>
-    </p>
-    <p>
-      <%= f.submit("Add new comment",{:class => 'btn btn-warning'}) %>
-    </p>
-  <% end %>
+
+
+<% if current_user %>
+  <%= render 'posts/comments_form' %>
 <% end %>
